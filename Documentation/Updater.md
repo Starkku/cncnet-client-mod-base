@@ -17,19 +17,18 @@ Updater-Related Files
 - **Updater Configuration File** (`Resources/UpdaterConfig.ini`): Client [updater configuration](#updater-configuration) file which sets the download mirrors for the updater and available custom component info. Requires [a client with extended updater support](#client-support). If no such file is found, client falls back to using `updateconfig.ini` that is used by the original XNA CnCNet Client which uses a different syntax and does not allow setting custom component info.
 - **Second-Stage Updater** (`clientupdt.dat`): A second-stage updater executable that copies the files to their correct places after they've all been downloaded and then launches the client again after it is done. Normally it has a hardcoded list of launcher executable names it looks for, and if it doesn't find any it won't launch the client again. The executable included here will attempt to read the launcher executable name from `LauncherExe` key in `Resources/ClientDefinitions.ini` if none from the hardcoded list are present.
 
-
 Basic Usage
 -----------
 
 ## Quick Guide
 1. Have a web server set up and create a publicly accessible directory from which to download your updates from.
-2  On your client configuration with support for extended updater, add URL of the aforementioned directory to list of available download mirrors in `Resources/UpdaterConfig.ini`. 
+2.  On your client configuration with support for extended updater, add URL of the aforementioned directory to list of available download mirrors in `Resources/UpdaterConfig.ini`. 
 3. Make changes to files and `VersionConfig.ini`.
 4. Run `VersionWriter.exe`.
 5. Upload the contents of the `VersionWriter_CopiedFiles` and [update server scripts](../Tools&#32;&&#32;Misc/Update&#32;Server&#32;Scripts) to the aforementioned directory on the web server.
 
 ## Detailed Instructions
-To have automatic updates via XNA CnCNet client, an update server needs to be set up. The update server needs to be a web server with the files accessible through HTTP (**not HTTPS**, unless you want to ditch Windows XP support), which would then allow them to be downloaded by client during the update process. The URL path to the file (sans update location part) has to replicate the local path to the file relative to mod folder in order to be succesfully downloaded (for example, with update location `http://your.test/location/of/updates/` the file `Resources/clientdx.exe` would need to be accessible at `http://your.test/location/of/updates/Resources/clientdx.exe` URL). 
+To have automatic updates via XNA CnCNet client, an update server needs to be set up. The update server needs to be a web server with the files accessible through HTTP (**not HTTPS**, unless you want to ditch Windows XP support), which would then allow them to be downloaded by client during the update process. The URL path to the file (sans update location part) has to replicate the local path to the file relative to mod folder in order to be succesfully downloaded (for example, with update location `http://your.test/location/of/updates/` the file `Resources/clientdx.exe` would need to be accessible at `http://your.test/location/of/updates/Resources/clientdx.exe` URL). Besides the update server scripts, the updater does not explicitly require any other files or specific software to exist or run on the update web server.
 
 To set up an update information needed to produce the files to upload on a server edit `VersionConfig.ini` file to include all of the redistributed files (or updated files only if you're saving on bandwidth and don't want to allow full downloads). Each time you need to push an update to your players (also if you change something in `VersionConfig.ini`) you have to change the version key under `[Version]` section in aforementioned configuration file so the CnCNet client prompts for an update. In case you need to force users to download an update manually you can change a key under `[UpdaterVersion]` section. After that run `VersionWriter.exe` and upload the contents of the `VersionWriter_CopiedFiles` to your update server along with updater scripts.
 
