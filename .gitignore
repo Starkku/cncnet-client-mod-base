@@ -1,0 +1,23 @@
+#Ignore thumbnails created by Windows
+Thumbs.db
+#Ignore log, config etc. user created files.
+Client Files/except.txt
+Client Files/ra2md.ini
+Client Files/keyboardmd.ini
+Client Files/ddraw.dll
+Client Files/ddraw.ini
+Client Files/libwine.dll
+Client Files/wined3d.dll
+Client Files/dxwnd.dll
+Client Files/dxwnd.ini
+Client Files/aqrit.cfg
+Client Files/syringe.log
+Client Files/stats.dmp
+Client Files/debug/
+Client Files/Client/
+Client Files/Map Editor/FinalAlert.ini
+Client Files/Map Editor/RA2Tmp.csf
+Client Files/Map Editor/FinalAlert2Log.txt
+Client Files/Map Editor/syringe.log
+Client Files/Saved Games/
+Client Files/Screenshots/
