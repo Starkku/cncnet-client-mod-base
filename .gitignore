@@ -1,6 +1,8 @@
 #Ignore thumbnails created by Windows
 Thumbs.db
 #Ignore log, config etc. user created files.
+Client Files/spawnmap.ini
+Client Files/spawn.ini
 Client Files/except.txt
 Client Files/ra2md.ini
 Client Files/keyboardmd.ini
