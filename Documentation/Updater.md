@@ -51,7 +51,6 @@ These are set under `[Options]` in `VersionConfig.ini`.
 ; version_base should be kept around as it is used to compare which files have been changed next time VersionWriter is ran.
 - `IncludeOnlyChangedFiles`: If set, version file writer will always create two version files - one with everything included (`version_base`) and the proper, actual version file with only changed files (`version`). Note that `version_base` should be kept around as it is used to compare which files have been changed next time version file writer is ran.
 - `CopyArchivedOriginalFiles`: If set, original versions of archived files will also be copied to copied files directory.
-- `UseLegacyArchiveFormat`: If set, will use legacy archived file info format. Only enable in case of compatibility problems when migrating from older client / updater versions that had compressed archive and not wishing to resort to multi-stage updates through client. **New users should not use this option.**
 
 #### Updater Version & Manual Download URL
 Setting `[UpdaterVersion]` in `VersionConfig.ini` writes this information to the `version` file and allows developers to control which versions are allowed to download files from the version info through the client. Mismatching updater versions between local and server version files will suggest users to download update manually through updater status message. Absent or malformed updater version (both local & server) is equivalent to `N/A` and updater will bypass the mismatch check entirely if server  updater version is set to this or absent.
@@ -91,7 +90,7 @@ Client Support
 --------------
 
 It's recommended to use one of the following client forks which include the extended updater features:
-- Client included in this repository - source code available [here](https://github.com/Starkku/xna-cncnet-client/tree/mod-base)
+- Client included in this repository - source code available [here](https://github.com/Starkku/xna-cncnet-client/tree/modified-updater)
 - [Kerbiter's modified client](https://github.com/Metadorius/xna-cncnet-client)
 
 The extended updater library (`DTAUpdater.dll`) should theoretically be backwards compatible with all modern XNA CnCNet client variants, though not all of the extended updater features will be available. Not using it with a corresponding client version is generally speaking advised against and not really supported in any real capacity.

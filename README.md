@@ -4,7 +4,7 @@ This repository contains a collection of files that can be used as a base to ada
 
 The contents of this repository can be broken down into the following categories (also separated into folders):
 
-- **[Client Files](Client&#32;Files)**: Contains compiled client binaries, an example client configuration & assets as well as all Command & Conquer: Yuri's Revenge maps (including the official map pack maps) and preview images generated for them. Source code for the client binaries included in this repository can be found [here](https://github.com/Starkku/xna-cncnet-client/tree/mod-base).
+- **[Client Files](Client&#32;Files)**: Contains compiled client binaries, an example client configuration & assets as well as all Command & Conquer: Yuri's Revenge maps (including the official map pack maps) and preview images generated for them. Source code for the client binaries included in this repository can be found [here](https://github.com/Starkku/xna-cncnet-client/tree/modified-updater).
 - **[Tools & Misc](Tools&#32;&&#32;Misc)**: Contains tool software and other assorted files that may be helpful for or required by the mod developers using the client. Currently this includes version file writer tool & update server scripts, both of which are used with client's updater feature.
 - **[Documentation](Documentation)**: Contains documentation and guides for client features & configuration.
 
