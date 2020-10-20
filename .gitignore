@@ -1,25 +1,25 @@
 #Ignore thumbnails created by Windows
 Thumbs.db
 #Ignore log, config etc. user created files.
-Client Files/spawnmap.ini
-Client Files/spawn.ini
-Client Files/except.txt
-Client Files/ra2md.ini
-Client Files/keyboardmd.ini
-Client Files/ddraw.dll
-Client Files/ddraw.ini
-Client Files/libwine.dll
-Client Files/wined3d.dll
-Client Files/dxwnd.dll
-Client Files/dxwnd.ini
-Client Files/aqrit.cfg
-Client Files/syringe.log
-Client Files/stats.dmp
-Client Files/debug/
-Client Files/Client/
-Client Files/Map Editor/FinalAlert.ini
-Client Files/Map Editor/RA2Tmp.csf
-Client Files/Map Editor/FinalAlert2Log.txt
-Client Files/Map Editor/syringe.log
-Client Files/Saved Games/
-Client Files/Screenshots/
+ClientFiles/spawnmap.ini
+ClientFiles/spawn.ini
+ClientFiles/except.txt
+ClientFiles/ra2md.ini
+ClientFiles/keyboardmd.ini
+ClientFiles/ddraw.dll
+ClientFiles/ddraw.ini
+ClientFiles/libwine.dll
+ClientFiles/wined3d.dll
+ClientFiles/dxwnd.dll
+ClientFiles/dxwnd.ini
+ClientFiles/aqrit.cfg
+ClientFiles/syringe.log
+ClientFiles/stats.dmp
+ClientFiles/debug/
+ClientFiles/Client/
+ClientFiles/Map Editor/FinalAlert.ini
+ClientFiles/Map Editor/RA2Tmp.csf
+ClientFiles/Map Editor/FinalAlert2Log.txt
+ClientFiles/Map Editor/syringe.log
+ClientFiles/Saved Games/
+ClientFiles/Screenshots/

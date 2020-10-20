@@ -22,10 +22,10 @@ Basic Usage
 
 ## Quick Guide
 1. Have a web server set up and create a publicly accessible directory from which to download your updates from.
-2.  On your client configuration with support for extended updater, add URL of the aforementioned directory to list of available download mirrors in `Resources/UpdaterConfig.ini`. 
+2. On your client configuration with support for extended updater, add URL of the aforementioned directory to list of available download mirrors in `Resources/UpdaterConfig.ini`. 
 3. Make changes to files and `VersionConfig.ini`.
 4. Run `VersionWriter.exe`.
-5. Upload the contents of the `VersionWriter_CopiedFiles` and [update server scripts](../Tools&#32;&&#32;Misc/Update&#32;Server&#32;Scripts) to the aforementioned directory on the web server.
+5. Upload the contents of the `VersionWriter_CopiedFiles` and [update server scripts](../Miscellaneous/UpdateServerScripts) to the aforementioned directory on the web server.
 
 ## Detailed Instructions
 To have automatic updates via XNA CnCNet client, an update server needs to be set up. The update server needs to be a web server with the files accessible through HTTP (**not HTTPS**, unless you want to ditch Windows XP support), which would then allow them to be downloaded by client during the update process. The URL path to the file (sans update location part) has to replicate the local path to the file relative to mod folder in order to be succesfully downloaded (for example, with update location `http://your.test/location/of/updates/` the file `Resources/clientdx.exe` would need to be accessible at `http://your.test/location/of/updates/Resources/clientdx.exe` URL). Besides the update server scripts, the updater does not explicitly require any other files or specific software to exist or run on the update web server.
