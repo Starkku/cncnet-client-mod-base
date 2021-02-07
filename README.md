@@ -11,6 +11,7 @@ The contents of this repository can be broken down into the following categories
 
 ## Documentation Index
 
+- [Quick Start Guide](Documentation/QuickStartGuide.md)
 - [Updater Documentation](Documentation/Updater.md)
 
 Credits
@@ -23,5 +24,5 @@ Credits
 
 Screenshots
 -------
-![Screenshot](modbaseclient-mainmenu.png?raw=true "Main menu in example configuration.")
-![Screenshot](modbaseclient-skirmishlobby.png?raw=true "Skirmish game lobby in example configuration.")
+![Screenshot of client main menu.](modbaseclient-mainmenu.png?raw=true "Main menu in example configuration.")
+![Screenshot of client skirmish game lobby.](modbaseclient-skirmishlobby.png?raw=true "Skirmish game lobby in example configuration.")
