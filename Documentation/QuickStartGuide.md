@@ -12,7 +12,7 @@ A list of instructions to follow to perform a basic set-up of the CnCNet client 
    1. Set `LocalGame` under section `Settings` to match the abbreviation from custom game's `InternalGame`.
    2. Set `LongGameName` under section `Settings` to full name of your mod.
    3. Set `WindowTitle` under section `Settings` to what you wish to display in client window titlebar.
-   4. *Optional:* If you are planning on setting up the updater, set `ModMod` under section `Settings` to `false`. For information on how to set up the updater, refer to the [updater documentation](Updater.md).
+   4. *Optional:* If you are planning on setting up the updater, set `ModMode` under section `Settings` to `false`. For information on how to set up the updater, refer to the [updater documentation](Updater.md).
 3. Edit `Resources\GameOptions.ini`:
    1. Change `Sides` list under section `General` to match the `Countries` list from your `rulesmd.ini`.
       - If you wish to list the `Countries` in different order between client and `rulesmd.ini`, use `InternalSideIndices` to override the used side (country) indices for `Sides` list to match the actual order in `rulesmd.ini`.
