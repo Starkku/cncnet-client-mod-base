@@ -21,6 +21,7 @@ Credits
 - [Starkku](https://github.com/Starkku) - Client contributions, extended client updater, VersionWriter, some client graphical assets, client configuration, documentation
 - [Kerbiter](https://github.com/Metadorius) - Client contributions, draft of the updater documentation
 - [tomsons26](https://github.com/tomsons26) - Edited Yuri's Revenge UI assets originally for use with CnCNet Yuri's Revenge
+- [Sad Pencil](https://github.com/SadPencil) - QRes DPI awareness fix
 
 Screenshots
 -------
