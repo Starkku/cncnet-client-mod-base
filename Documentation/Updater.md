@@ -1,7 +1,4 @@
-# Extended CnCNet Client Updater #
-
-This document attempts to explain the usage and features of the extended CnCnet Client updater that is included with the client files in this repository. Some of the details may overlap with the regular CnCNet Client updater, however many features presented here are absent in it.
-
+# Instructions on how to use the updater functionality of the XNA CnCNet client
 
 Updater-Related Files
 -------------------
@@ -15,7 +12,7 @@ Updater-Related Files
 
 ### Distributable Files
 - **Updater Configuration File** (`Resources/UpdaterConfig.ini`): Client [updater configuration](#updater-configuration) file which sets the download mirrors for the updater and available custom component info. Requires [a client with extended updater support](#client-support). If no such file is found, client falls back to using `updateconfig.ini` that is used by the original XNA CnCNet Client which uses a different syntax and does not allow setting custom component info.
-- **Second-Stage Updater** (`clientupdt.dat`): A second-stage updater executable that copies the files to their correct places after they've all been downloaded and then launches the client again after it is done. Normally it has a hardcoded list of launcher executable names it looks for, and if it doesn't find any it won't launch the client again. The executable included here will attempt to read the launcher executable name from `LauncherExe` key in `Resources/ClientDefinitions.ini` if none from the hardcoded list are present.
+- **Second-Stage Updater** (`Resources/SecondStageUpdater.exe`): A second-stage updater executable that copies the files to their correct places after they've all been downloaded and then launches the client again after it is done. Client launcher executable is read from `LauncherExe` key in `Resources/ClientDefinitions.ini`, if it is not present or cannot be read for any other reason the client will not automatically restart after the second-stage updater has finished.
 
 Basic Usage
 -----------
@@ -39,16 +36,21 @@ Features
 -------
 
 ### Version File Writer
-The example `VersionConfig.ini` included with the version writer contains comments explaining most of the functionality and features.
+Version file writer is a program that writes the `version` file used by the client and its updater. It reads a file called `VersionConfig.ini` from its working directory for settings and list of files to include.
 
-`VersionWriter.exe` accepts a single command-line argument that can be used to set its working directory - this allows running VersionWriter from outside the mod directory itself.
+The example `VersionConfig.ini` included with the version file writer in client repository contains comments explaining most of the functionality and features.
+
+`VersionWriter.exe` accepts command-line arguments that start with `/` or `-` as switches. Following switches are accepted:
+- `-LOG`: Generates log file in the program directory.
+- `-QUIET`: Does not generate console output.
+- `-SUPRESSINPUTS`: Does not ask for user input to confirm actions.
+
+ Additionally a single non-switch argument can be provided that can be used to set the program's working directory - this allows running VersionWriter from outside the mod directory itself.
 
 #### Options
 These are set under `[Options]` in `VersionConfig.ini`.
-- `EnableExtendedUpdaterFeatures`: If set, enables the extended updater features such as compressed archives, updater version and manual download URL.
+- `EnableExtendedUpdaterFeatures`: If set, enables additional updater features such as compressed archives, updater version and manual download URL.
 - `RecursiveDirectorySearch`: If set, will go through every subdirectory recursively for directories given in `[Include]`.
-; If set, will always create two version files - one with everything included (version_base) and the proper, actual version file with only changed files (version). 
-; version_base should be kept around as it is used to compare which files have been changed next time VersionWriter is ran.
 - `IncludeOnlyChangedFiles`: If set, version file writer will always create two version files - one with everything included (`version_base`) and the proper, actual version file with only changed files (`version`). Note that `version_base` should be kept around as it is used to compare which files have been changed next time version file writer is ran.
 - `CopyArchivedOriginalFiles`: If set, original versions of archived files will also be copied to copied files directory.
 
@@ -84,13 +86,3 @@ Download path / URL supports absolute URLs, allowing custom components to be dow
 Download path archive file extension disable flag is a boolean value (yes/no, true/false), is optional and defaults to false.
 
 Omitting the custom components list will default to the hardcoded list for currently set mod / game if available. Custom components and the Components tab in client options will be unavailable if no custom component info is found.
-
-
-Client Support
---------------
-
-It's recommended to use one of the following client forks which include the extended updater features:
-- Client included in this repository - source code available [here](https://github.com/Starkku/xna-cncnet-client/tree/modified-updater)
-- [Kerbiter's modified client](https://github.com/Metadorius/xna-cncnet-client)
-
-The extended updater library (`DTAUpdater.dll`) should theoretically be backwards compatible with all modern XNA CnCNet client variants, though not all of the extended updater features will be available. Not using it with a corresponding client version is generally speaking advised against and not really supported in any real capacity.
