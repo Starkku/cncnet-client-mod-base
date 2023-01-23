@@ -1,1 +1,1 @@
-@start /B dotnet Binaries/Windows/clientdx.dll
+dotnet Binaries/Windows/clientdx.dll
