@@ -1,1 +1,2 @@
-dotnet Binaries/OpenGL/clientogl.dll
+cd ..
+YRLauncher.exe -OGL

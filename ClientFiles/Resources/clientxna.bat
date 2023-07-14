@@ -1,1 +1,2 @@
-dotnet Binaries/XNA/clientxna.dll
+cd ..
+YRLauncher.exe -XNA

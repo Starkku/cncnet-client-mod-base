@@ -1,1 +1,2 @@
-dotnet Binaries/Windows/clientdx.dll
+cd ..
+YRLauncher.exe -DX
