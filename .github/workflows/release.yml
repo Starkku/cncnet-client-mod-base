@@ -1,0 +1,22 @@
+name: Create Release
+
+on:
+  push:
+    branches: 
+      - master
+      - main
+
+jobs:
+  release:
+    runs-on: windows-latest
+
+    steps:
+    - name: Create Release
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          title: Latest CnCNet Client YR Mod Base
+          prerelease: false
+          
+          

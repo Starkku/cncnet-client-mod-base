@@ -9,6 +9,10 @@ The contents of this repository can be broken down into the following categories
 - **[Miscellaneous](Miscellaneous)**: Contains assorted files that are not additional software or part of the client configuration. Currently this includes update server script files used with the client's updater feature.
 - **[Documentation](Documentation)**: Contains documentation and guides for client features & configuration.
 
+Latest version can be downloaded [here](https://github.com/Starkku/cncnet-client-mod-base/releases/tag/latest).
+
+Other releases can be browsed at https://github.com/Starkku/cncnet-client-mod-base/releases.
+
 ## Documentation Index
 
 - [Quick Start Guide](Documentation/QuickStartGuide.md)
