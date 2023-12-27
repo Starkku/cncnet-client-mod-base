@@ -8,6 +8,7 @@ A list of instructions to follow to perform a basic set-up of the CnCNet client 
    3. Set `ChatChannel` and `GameBroadcastChannel` under section `CustomGame` to valid IRC channel names. For an example, `#cncnet-X` for `ChatChannel` and `#cncnet-X-games` for `GameBroadcastChannel`, where `X` is replaced by the abbreviation from `InternalName`.
       - **NOTE:** If you wish to register and moderate the channels yourself, you can't use the `cncnet` name in the channel names. In that case, it is recommended to use the full name of the mod instead, f.ex `#customgame` / `#customgame-games`.
    4. Set `IconFilename` under section `CustomGame` to a valid filename of a 16x16px icon to display in CnCNet lobby & CnCNet options. The file (ideally in PNG format) should be placed in `Resources` directory.
+   5. Make sure '0=CustomGame' under the [CustomGames] section is uncommented. This can be uncommented by removing the semicolon. 
 2. Edit `Resources\ClientDefinitions.ini`:
    1. Set `LocalGame` under section `Settings` to match the abbreviation from custom game's `InternalGame`.
    2. Set `LongGameName` under section `Settings` to full name of your mod.
