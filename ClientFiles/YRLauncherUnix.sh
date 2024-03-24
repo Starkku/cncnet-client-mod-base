@@ -1,2 +1,4 @@
 #!/bin/sh
-env MONO_IOMAP=all mono --debug YRLauncher.exe
+
+cd "$(dirname "$0")"
+dotnet Resources/BinariesNET8/UniversalGL/clientogl.dll "$@"
