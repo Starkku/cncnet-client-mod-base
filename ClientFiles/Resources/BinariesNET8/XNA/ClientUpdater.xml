@@ -1,0 +1,524 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ClientUpdater</name>
+    </assembly>
+    <members>
+        <member name="T:SevenZip.DataErrorException">
+            <summary>
+            The exception that is thrown when an error in input stream occurs during decoding.
+            </summary>
+        </member>
+        <member name="T:SevenZip.InvalidParamException">
+            <summary>
+            The exception that is thrown when the value of an argument is outside the allowable range.
+            </summary>
+        </member>
+        <member name="M:SevenZip.ICodeProgress.SetProgress(System.Int64,System.Int64)">
+            <summary>
+            Callback progress.
+            </summary>
+            <param name="inSize">
+            input size. -1 if unknown.
+            </param>
+            <param name="outSize">
+            output size. -1 if unknown.
+            </param>
+        </member>
+        <member name="M:SevenZip.ICoder.Code(System.IO.Stream,System.IO.Stream,System.Int64,System.Int64,SevenZip.ICodeProgress)">
+            <summary>
+            Codes streams.
+            </summary>
+            <param name="inStream">
+            input Stream.
+            </param>
+            <param name="outStream">
+            output Stream.
+            </param>
+            <param name="inSize">
+            input Size. -1 if unknown.
+            </param>
+            <param name="outSize">
+            output Size. -1 if unknown.
+            </param>
+            <param name="progress">
+            callback progress reference.
+            </param>
+            <exception cref="T:SevenZip.DataErrorException">
+            if input stream is not valid
+            </exception>
+        </member>
+        <member name="T:SevenZip.CoderPropID">
+            <summary>
+            Provides the fields that represent properties idenitifiers for compressing.
+            </summary>
+        </member>
+        <member name="F:SevenZip.CoderPropID.DefaultProp">
+            <summary>
+            Specifies default property.
+            </summary>
+        </member>
+        <member name="F:SevenZip.CoderPropID.DictionarySize">
+            <summary>
+            Specifies size of dictionary.
+            </summary>
+        </member>
+        <member name="F:SevenZip.CoderPropID.UsedMemorySize">
+            <summary>
+            Specifies size of memory for PPM*.
+            </summary>
+        </member>
+        <member name="F:SevenZip.CoderPropID.Order">
+            <summary>
+            Specifies order for PPM methods.
+            </summary>
+        </member>
+        <member name="F:SevenZip.CoderPropID.BlockSize">
+            <summary>
+            Specifies Block Size.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:SevenZip.CoderPropID.PosStateBits" -->
+        <!-- Badly formed XML comment ignored for member "F:SevenZip.CoderPropID.LitContextBits" -->
+        <!-- Badly formed XML comment ignored for member "F:SevenZip.CoderPropID.LitPosBits" -->
+        <member name="F:SevenZip.CoderPropID.NumFastBytes">
+            <summary>
+            Specifies number of fast bytes for LZ*.
+            </summary>
+        </member>
+        <member name="F:SevenZip.CoderPropID.MatchFinder">
+            <summary>
+            Specifies match finder. LZMA: "BT2", "BT4" or "BT4B".
+            </summary>
+        </member>
+        <member name="F:SevenZip.CoderPropID.MatchFinderCycles">
+            <summary>
+            Specifies the number of match finder cyckes.
+            </summary>
+        </member>
+        <member name="F:SevenZip.CoderPropID.NumPasses">
+            <summary>
+            Specifies number of passes.
+            </summary>
+        </member>
+        <member name="F:SevenZip.CoderPropID.Algorithm">
+            <summary>
+            Specifies number of algorithm.
+            </summary>
+        </member>
+        <member name="F:SevenZip.CoderPropID.NumThreads">
+            <summary>
+            Specifies the number of threads.
+            </summary>
+        </member>
+        <member name="F:SevenZip.CoderPropID.EndMarker">
+            <summary>
+            Specifies mode with end marker.
+            </summary>
+        </member>
+        <member name="T:ClientUpdater.Compression.CompressionHelper">
+            <summary>
+            LZMA compression helper.
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.Compression.CompressionHelper.CompressFileAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Compress file using LZMA.
+            </summary>
+            <param name="inputFilename">Input file path.</param>
+            <param name="outputFilename">Output file path.</param>
+        </member>
+        <member name="M:ClientUpdater.Compression.CompressionHelper.DecompressFileAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Decompress file using LZMA.
+            </summary>
+            <param name="inputFilename">Input file path.</param>
+            <param name="outputFilename">Output file path.</param>
+        </member>
+        <member name="T:ClientUpdater.CustomComponent">
+            <summary>
+            Custom component.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.CustomComponent.GUIName">
+            <summary>
+            UI name of custom component.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.CustomComponent.ININame">
+            <summary>
+            INI name of custom component.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.CustomComponent.LocalPath">
+            <summary>
+            Local file system path of custom component.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.CustomComponent.DownloadPath">
+            <summary>
+            Download path of custom component.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.CustomComponent.IsDownloadPathAbsolute">
+            <summary>
+            Is download path treated as an absolute URL?
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.CustomComponent.NoArchiveExtensionForDownloadPath">
+            <summary>
+            If set, no archive extension is used for download file path.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.CustomComponent.IsBeingDownloaded">
+            <summary>
+            Is this custom component currently being downloaded?
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.CustomComponent.LocalIdentifier">
+            <summary>
+            File identifier from local version file.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.CustomComponent.RemoteIdentifier">
+            <summary>
+            File identifier from server version file.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.CustomComponent.RemoteSize">
+            <summary>
+            File size from server version file.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.CustomComponent.RemoteArchiveSize">
+            <summary>
+            Archive file size from server version file.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.CustomComponent.Archived">
+            <summary>
+            Is custom component an archived file?
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.CustomComponent.Initialized">
+            <summary>
+            Has custom component been initialized?
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.CustomComponent.#ctor">
+            <summary>
+            Creates new custom component.
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.CustomComponent.#ctor(System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Creates new custom component from given information.
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.CustomComponent.DownloadComponent">
+            <summary>
+            Starts download for this custom component.
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.CustomComponent.StopDownload">
+            <summary>
+            Stops downloading of this custom component.
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.CustomComponent.DoDownloadComponentAsync(System.Threading.CancellationToken)">
+            <summary>
+            Handles downloading of the custom component.
+            </summary>
+        </member>
+        <member name="T:ClientUpdater.UpdateMirror">
+            <summary>
+            Update mirror info.
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.UpdateMirror.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Update mirror info.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.Updater.GamePath">
+            <summary>
+            Currently set game path for the updater.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.Updater.ResourcePath">
+            <summary>
+            Currently set resource path for the updater.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.Updater.LocalGame">
+            <summary>
+            Currently set local game ID for the updater.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.Updater.CallingExecutableFileName">
+            <summary>
+            Currently set calling executable file name for the updater.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.Updater.CustomComponents">
+            <summary>
+            Gets read-only collection of all custom components.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.Updater.UpdateMirrors">
+            <summary>
+            Gets read-only collection of all update mirrors.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.Updater.CurrentUpdateServerURL">
+            <summary>
+            Update server URL for current update mirror if available.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.Updater.VersionState">
+            <summary>
+            Current version state of the updater.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.Updater.ManualUpdateRequired">
+            <summary>
+            Does the currently available update (if applicable) require manual download?
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.Updater.ManualDownloadURL">
+            <summary>
+            Manual download URL for currently available update, if available.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.Updater.UpdaterVersion">
+            <summary>
+            Local version file updater version.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.Updater.GameVersion">
+            <summary>
+            Local version file game version.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.Updater.ServerGameVersion">
+            <summary>
+            Server version file game version.
+            </summary>
+        </member>
+        <member name="P:ClientUpdater.Updater.UpdateSizeInKb">
+            <summary>
+            Size of current update in kilobytes.
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.Updater.Initialize(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes the updater.
+            </summary>
+            <param name="gamePath">Path of the root client / game folder.</param>
+            <param name="resourcePath">Path of the resource folder of client / game.</param>
+            <param name="settingsIniName">Client settings INI filename.</param>
+            <param name="localGame">Local game ID of the current game.</param>
+            <param name="callingExecutableFileName">File name of the calling executable.</param>
+        </member>
+        <member name="M:ClientUpdater.Updater.CheckForUpdates">
+            <summary>
+            Checks if there are available updates.
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.Updater.CheckLocalFileVersions">
+            <summary>
+            Checks version information of local files.
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.Updater.StartUpdate">
+            <summary>
+            Starts update process.
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.Updater.StopUpdate">
+            <summary>
+            Stops current update process.
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.Updater.ClearVersionInfo">
+            <summary>
+            Clears current version file information.
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.Updater.IsFileNonexistantOrOriginal(System.String)">
+            <summary>
+            Checks if file
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.Updater.MoveMirrorDown(System.Int32)">
+            <summary>
+            Moves update mirror down in list of update mirrors.
+            </summary>
+            <param name="mirrorIndex">Index of mirror to move in the list.</param>
+        </member>
+        <member name="M:ClientUpdater.Updater.MoveMirrorUp(System.Int32)">
+            <summary>
+            Moves update mirror up in list of update mirrors.
+            </summary>
+            <param name="mirrorIndex">Index of mirror to move in the list.</param>
+        </member>
+        <member name="M:ClientUpdater.Updater.IsComponentDownloadInProgress">
+            <summary>
+            Returns whether or not there is a currently active custom component in progress.
+            </summary>
+            <returns>True if custom component download is in progress, otherwise false.</returns>
+        </member>
+        <member name="M:ClientUpdater.Updater.GetComponentIndex(System.String)">
+            <summary>
+            Gets custom component index based on name.
+            </summary>
+            <param name="componentName">Name of custom component.</param>
+            <returns>Component index if found, otherwise -1.</returns>
+        </member>
+        <member name="M:ClientUpdater.Updater.GetArchiveInfo(Rampastring.Tools.IniFile,System.String,System.String@,System.Int32@)">
+            <summary>
+            Get archive info for a file from version file.
+            </summary>
+            <param name="versionFile">Version file.</param>
+            <param name="filename">Filename.</param>
+            <param name="archiveID">Set to archive ID.</param>
+            <param name="archiveSize">Set to archive file size.</param>
+        </member>
+        <member name="M:ClientUpdater.Updater.CreateFileInfo(System.String,System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            Creates file info instance from given information.
+            </summary>
+            <param name="filename">Filename.</param>
+            <param name="identifier">File identifier.</param>
+            <param name="size">File size.</param>
+            <param name="archiveIdentifier">Archive file identifier.</param>
+            <param name="archiveSize">Archive file size.</param>
+        </member>
+        <member name="M:ClientUpdater.Updater.DeleteFileAndWait(System.String,System.Int32)">
+            <summary>
+            Deletes file and waits until it has been deleted.
+            </summary>
+            <param name="filepath">File to delete.</param>
+            <param name="timeout">Maximum time to wait in milliseconds.</param>
+        </member>
+        <member name="M:ClientUpdater.Updater.CreatePath(System.String)">
+            <summary>
+            Creates all directories required for file path.
+            </summary>
+            <param name="filePath">File path.</param>
+        </member>
+        <member name="M:ClientUpdater.Updater.ReadUpdaterConfig">
+            <summary>
+            Parse updater configuration file.
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.Updater.ReadLegacyUpdaterConfig(System.Collections.Generic.List{ClientUpdater.UpdateMirror})">
+            <summary>
+            Parse legacy format updater configuration file.
+            </summary>
+            <param name="updateMirrors">List of update mirrors to add update mirrors to.</param>
+        </member>
+        <member name="M:ClientUpdater.Updater.DoVersionCheckAsync">
+            <summary>
+            Performs a version file check on update server.
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.Updater.AreCustomComponentsOutdated">
+            <summary>
+            Checks if custom components are outdated.
+            </summary>
+            <returns>True if custom components are outdated, otherwise false.</returns>
+        </member>
+        <member name="M:ClientUpdater.Updater.ExecuteAfterUpdateScriptAsync">
+            <summary>
+            Executes after-update script file.
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.Updater.ExecutePreUpdateScriptAsync">
+            <summary>
+            Executes pre-update script file.
+            </summary>
+            <returns>True if succesful, otherwise false.</returns>
+        </member>
+        <member name="M:ClientUpdater.Updater.ExecuteScript(System.String)">
+            <summary>
+            Executes a script file.
+            </summary>
+            <param name="fileName">Filename of the script file.</param>
+        </member>
+        <member name="M:ClientUpdater.Updater.VersionCheckHandle">
+            <summary>
+            Handle version check.
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.Updater.VerifyLocalFileVersions">
+            <summary>
+            Verifies local file version info.
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.Updater.PerformUpdateAsync">
+            <summary>
+            Downloads files required for update and starts second-stage updater.
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.Updater.DownloadFileAsync(ClientUpdater.UpdaterFileInfo)">
+            <summary>
+            Downloads and handles individual file.
+            </summary>
+            <param name="fileInfo">File info for the file.</param>
+            <returns>Error message if something went wrong, otherwise null.</returns>
+        </member>
+        <member name="M:ClientUpdater.Updater.UpdateDownloadProgress(System.Int32)">
+            <summary>
+            Updates download progress.
+            </summary>
+            <param name="progressPercentage">Progress percentage.</param>
+        </member>
+        <member name="M:ClientUpdater.Updater.ContainsAnyMask(System.String)">
+            <summary>
+            Checks if file path contains ignore masks.
+            </summary>
+            <param name="filePath">File path to check.</param>
+            <returns>True if path contains any ignore masks, otherwise false.</returns>
+        </member>
+        <member name="M:ClientUpdater.Updater.GetKeys(Rampastring.Tools.IniFile,System.String)">
+            <summary>
+            Gets keys from INI file section.
+            </summary>
+            <param name="iniFile">INI file.</param>
+            <param name="sectionName">Section name.</param>
+            <returns>List of keys or empty list if section does not exist or no keys were found.</returns>
+        </member>
+        <member name="M:ClientUpdater.Updater.TryGetUniqueId(System.String)">
+            <summary>
+            Attempts to get file identifier for a file.
+            </summary>
+            <param name="filePath">File path of file.</param>
+            <returns>File identifier if successful, otherwise empty string.</returns>
+        </member>
+        <member name="M:ClientUpdater.Updater.CheckFileIdentifiers(System.String,System.String,System.String)">
+            <summary>
+            Checks file identifiers to see if file is intact.
+            </summary>
+            <param name="fileInfoFilename">Filename in file info.</param>
+            <param name="localFilename">Filename on system.</param>
+            <param name="fileInfoIdentifier">Current file identifier.</param>
+            <returns>File identifier if check is successful, otherwise null.</returns>
+        </member>
+        <member name="T:ClientUpdater.UpdaterFileInfo">
+            <summary>
+             Updater file info.
+            </summary>
+        </member>
+        <member name="M:ClientUpdater.UpdaterFileInfo.#ctor(System.String,System.Int32)">
+            <summary>
+             Updater file info.
+            </summary>
+        </member>
+        <member name="T:ClientUpdater.VersionState">
+            <summary>
+            Updater version state.
+            </summary>
+        </member>
+    </members>
+</doc>
